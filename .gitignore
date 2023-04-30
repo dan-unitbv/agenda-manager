@@ -1,0 +1,40 @@
+# Visual Studio folder
+.vs/
+
+# User-specific files
+*.user
+*.suo
+*.cache
+*.dll.refresh
+*.log
+*.bin
+*.exe
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+bin/
+
+# NuGet packages
+*.nuget.props
+*.nuget.targets
+packages/
+
+# Other files and folders
+*.cache
+*.bak
+*.vspscc
+*.vssscc
+*.psess
+*.zip
+*.ps1xml
+*.csv
+*.xml
+*.swp
+*.bak
+*.tmp
+*.userprefs
+Thumbs.db
+Desktop.ini
