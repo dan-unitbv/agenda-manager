@@ -1,0 +1,41 @@
+﻿<Window x:Class="AgendaManager.Windows.AddToDoListWindow"
+        x:Name="AddToDoList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgendaManager.Windows"
+        xmlns:VM="clr-namespace:AgendaManager.ViewModels"
+        mc:Ignorable="d"
+        
+        Title="Add / Edit To Do List" Height="350" Width="400" ResizeMode="NoResize">
+
+    <Window.Icon>
+        <BitmapImage UriSource="/Assets/checklist.ico" />
+    </Window.Icon>
+
+    <Window.DataContext>
+        <VM:AddToDoListVM/>
+    </Window.DataContext>
+
+    <Grid>
+
+        <Label Content="Please enter a name for the to do list:" HorizontalAlignment="Left" Margin="34,33,0,0" VerticalAlignment="Top" Height="30" Width="208" FontSize="12"/>
+
+        <TextBox HorizontalAlignment="Left" Margin="34,68,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120" Height="22"/>
+
+        <Image HorizontalAlignment="Left" Height="84" Margin="34,142,0,0" Source="{Binding ImagePath}" VerticalAlignment="Top" Width="85"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="84" Margin="34,142,0,0" Stroke ="Gray" VerticalAlignment="Top" Width="84"/>
+
+        <Label Content="Please select a symbol:" HorizontalAlignment="Left" Margin="34,109,0,0" VerticalAlignment="Top" Width="133" Height="28" FontSize="12"/>
+
+        <Button Content="&lt;&lt;" HorizontalAlignment="Left" Margin="34,247,0,0" VerticalAlignment="Top" Width="29" Command="{Binding PreviousSymbolCommand}"/>
+
+        <Button Content=">>" HorizontalAlignment="Left" Margin="76,247,0,0" VerticalAlignment="Top" Width="29" Command="{Binding NextSymbolCommand}"/>
+
+        <Button Content="Add" HorizontalAlignment="Center" Margin="0,257,0,0" VerticalAlignment="Top" Height="37" Width="84" Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=AddToDoList}" FontSize="12"/>
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="AgendaManager.Windows.ChangeRootWindow"
+        x:Name="ChangeRoot"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgendaManager.Windows"
+        xmlns:VM="clr-namespace:AgendaManager.ViewModels"
+        xmlns:converters="clr-namespace:AgendaManager.Converters"
+        mc:Ignorable="d"
+        
+        Title="Change Root" Height="500" Width="700" ResizeMode="NoResize">
+
+    <Window.Icon>
+        <BitmapImage UriSource="/Assets/checklist.ico" />
+    </Window.Icon>
+
+    <Window.Resources>
+        <converters:BooleanToReverseBooleanConverter x:Key="BooleanToReverseBooleanConverter"/>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <VM:ChangeRootVM/>
+    </Window.DataContext>
+
+    <Grid>
+
+        <Label Content="{Binding Path=ToDoListName}" ContentStringFormat="Do you want your '{0}' list to become a new root to do list?" HorizontalAlignment="Left" Margin="64,84,0,0" VerticalAlignment="Top" Height="42" Width="528" FontSize="18"/>
+
+        <RadioButton Content="Yes" HorizontalAlignment="Left" Margin="64,160,0,0" VerticalAlignment="Top" Height="30" Width="100" FontSize="16" IsChecked="{Binding IsRoot, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <RadioButton Content="No" HorizontalAlignment="Left" Margin="64,195,0,0" VerticalAlignment="Top" FontSize="16" IsChecked="{Binding Path=IsRoot, Converter={StaticResource BooleanToReverseBooleanConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="100"/>
+
+        <Label Content="If not, please choose a to do list to be the new root:" HorizontalAlignment="Left" Margin="64,247,0,0" VerticalAlignment="Top" Height="35" Width="383" FontSize="16"/>
+
+        <ComboBox HorizontalAlignment="Left" Margin="64,287,0,0" VerticalAlignment="Top" Width="140" ItemsSource="{Binding ToDoListItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedRoot}" IsEnabled="{Binding Path=IsRoot, Converter={StaticResource BooleanToReverseBooleanConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="27"/>
+
+        <Button Content="Change" HorizontalAlignment="Center" Margin="0,394,0,0" VerticalAlignment="Top" Height="52" Width="131" Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=ChangeRoot}" FontSize="14" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.553"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaManager", "AgendaManager\AgendaManager.csproj", "{BCA71DFF-81AF-43E8-A76A-99D3F305D439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCA71DFF-81AF-43E8-A76A-99D3F305D439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA71DFF-81AF-43E8-A76A-99D3F305D439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA71DFF-81AF-43E8-A76A-99D3F305D439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA71DFF-81AF-43E8-A76A-99D3F305D439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F70515D-356C-4C3D-9AFD-695678776EF4}
+	EndGlobalSection
+EndGlobal

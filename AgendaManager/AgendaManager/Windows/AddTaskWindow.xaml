@@ -1,0 +1,59 @@
+﻿<Window x:Class="AgendaManager.Windows.AddTaskWindow"
+        x:Name="AddTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgendaManager.Windows"
+        xmlns:VM="clr-namespace:AgendaManager.ViewModels"
+        mc:Ignorable="d"
+        
+        Title="Add / Edit Task" Height="490" Width="630" ResizeMode="NoResize">
+
+    <Window.Icon>
+        <BitmapImage UriSource="/Assets/checklist.ico" />
+    </Window.Icon>
+
+    <Window.DataContext>
+        <VM:AddTaskVM/>
+    </Window.DataContext>
+
+    <Grid>
+
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="61,39,0,0" VerticalAlignment="Top" Height="38" Width="76" FontSize="16"/>
+
+        <TextBox HorizontalAlignment="Left" Margin="61,88,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="149" Height="26" FontSize="16">
+
+            <TextBox.RenderTransform>
+
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.061"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+
+            </TextBox.RenderTransform>
+
+        </TextBox>
+
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="61,141,0,0" VerticalAlignment="Top" Height="39" Width="114" FontSize="16"/>
+
+        <TextBox HorizontalAlignment="Left" Margin="61,195,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="197" Height="150" FontSize="16"/>
+
+        <Label Content="Priority:" HorizontalAlignment="Left" Margin="380,39,0,0" VerticalAlignment="Top" Height="39" Width="76" FontSize="16"/>
+
+        <Label Content="Category:" HorizontalAlignment="Left" Margin="378,141,0,0" VerticalAlignment="Top" Height="39" Width="91" FontSize="16"/>
+
+        <Label Content="Deadline:" HorizontalAlignment="Left" Margin="378,251,0,0" VerticalAlignment="Top" Height="38" Width="104" FontSize="16"/>
+
+        <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding PriorityList}" SelectedItem="{Binding TaskPriority, Mode=TwoWay}" Margin="378,88,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding CategoriesList}" SelectedItem="{Binding TaskCategory, Mode=TwoWay}" Margin="378,195,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+
+        <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding Deadline}" Margin="378,310,0,0" VerticalAlignment="Top" Height="35" Width="133" FontSize="16"/>
+
+        <Button Content="OK" HorizontalAlignment="Center" Margin="0,397,0,0" VerticalAlignment="Top" Height="44" Width="103" Command="{Binding CreateTaskCommand}" CommandParameter="{Binding ElementName=AddTask}" FontSize="12"/>
+
+    </Grid>
+
+</Window>
